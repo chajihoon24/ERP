@@ -21,6 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	<!-- component-scan이 있기때문에 일일이 bean을 등록하지 않아도 된다. 내부 시스템에 의해 controller가 자동인식 됨 -->
+	
 	<context:component-scan base-package="com.jihoon.ERP" />
 	
 	
