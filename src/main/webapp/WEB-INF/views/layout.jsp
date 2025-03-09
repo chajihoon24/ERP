@@ -22,7 +22,7 @@
 	
 		<jsp:include page="aside.jsp"/>
 		
-		<div class="content">
+		<div class="content m-8 flex-grow">
 	    <jsp:include page="${contentPage}"/> <!-- 동적으로 페이지 포함 -->
 	    </div>
 	    

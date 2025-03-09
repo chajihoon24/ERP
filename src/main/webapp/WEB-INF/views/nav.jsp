@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
   <nav class="bg-gray-800 p-4 flex items-center justify-between">
     <div>
-      <h1 class="text-white text-xl font-semibold">Jihoon ERP</h1>
+      <h1 class="text-white text-xl font-semibold ml-8">Jihoon ERP</h1>
     </div>
     <div class="flex items-center space-x-4">
     

@@ -6,7 +6,7 @@
         <li class="opcion-con-desplegable">
           <div class="flex items-center justify-between p-2 hover:bg-gray-700">
             <div class="flex items-center">
-              <i class="fas fa-calendar-alt mr-2"></i>
+              <i class="fas fa-regular fa-user mr-2"></i>
               <span>인사/급여</span>
             </div>
             <i class="fas fa-chevron-down text-xs"></i>
@@ -105,7 +105,7 @@
         <li class="opcion-con-desplegable">
           <div class="flex items-center justify-between p-2 hover:bg-gray-700">
             <div class="flex items-center">
-              <i class="fas fa-calendar-alt mr-2"></i>
+              <i class="fa fa-cog mr-2"></i>
               <span>사용자 관리</span>
             </div>
             <i class="fas fa-chevron-down text-xs"></i>
