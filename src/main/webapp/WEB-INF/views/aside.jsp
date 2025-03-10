@@ -7,7 +7,7 @@
           <div class="flex items-center justify-between p-2 hover:bg-gray-700">
             <div class="flex items-center">
               <i class="fas fa-regular fa-user mr-2"></i>
-              <span>인사/급여</span>
+              <span>HR</span>
             </div>
             <i class="fas fa-chevron-down text-xs"></i>
           </div>
@@ -15,13 +15,13 @@
             <li>
               <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
                 <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                Gestion de citas
+                	직원 관리
               </a>
             </li>
             <li>
               <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
                 <i class="fas fa-chevron-right mr-2 text-xs"></i>
-                Polizas
+               	 급여 관리
               </a>
             </li>
           </ul>
@@ -30,7 +30,7 @@
           <div class="flex items-center justify-between p-2 hover:bg-gray-700">
             <div class="flex items-center">
               <i class="fas fa-money-bill-wave mr-2"></i>
-              <span>Contabilidad</span>
+              <span>WMS</span>
             </div>
             <i class="fas fa-chevron-down text-xs"></i>
           </div>
