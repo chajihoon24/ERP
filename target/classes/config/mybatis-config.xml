@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD MyBatis Configuration 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- MyBatis 설정 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/> 
+    </settings>
+
+
+
+    <mappers>
+    	 <!-- 사용자 SQL 맵퍼  -->
+        <mapper resource="mapper/ErpUserMapper.xml"/>
+         <!-- 게시판 SQL 맵퍼  -->
+        <mapper resource="mapper/noticeMapper.xml"/> 
+    </mappers>
+    
+    
+
+</configuration>
