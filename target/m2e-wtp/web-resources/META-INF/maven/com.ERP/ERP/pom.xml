@@ -92,6 +92,12 @@
 			<artifactId>egovframework.rte.fdl.property</artifactId>
 			<version>${egovframework.rte.version}</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <version>4.3.23.RELEASE</version>
+		</dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -136,7 +142,7 @@
 	    </dependency>
 
 
-        <dependency>
+<!--         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>
             <artifactId>log4jdbc</artifactId>
             <version>1.2</version>
@@ -146,7 +152,7 @@
                     <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency> -->
 
         <dependency>
 		    <groupId>org.apache.commons</groupId>
@@ -204,6 +210,38 @@
 		    <artifactId>jackson-annotations</artifactId>
 		    <version>2.13.0</version> <!-- 버전은 최신 버전으로 설정 -->
 		</dependency>
+		
+		
+
+	    <!-- Spring Security Web -->
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-web</artifactId>
+	        <version>4.2.19.RELEASE</version>  <!-- 4.x 버전 사용 -->
+	    </dependency>
+	
+	    <!-- Spring Security Config -->
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-config</artifactId>
+	        <version>4.2.19.RELEASE</version>  <!-- 4.x 버전 사용 -->
+	    </dependency>
+	
+	    <!-- Spring Security Core (기본적인 기능 포함) -->
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-core</artifactId>
+	        <version>4.2.19.RELEASE</version>  <!-- 4.x 버전 사용 -->
+	    </dependency>
+	
+	    <!-- Spring Security Crypto (비밀번호 암호화 관련) -->
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-crypto</artifactId>
+	        <version>4.2.19.RELEASE</version>
+	    </dependency>
+
+	
 
 	</dependencies>
 

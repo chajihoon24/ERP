@@ -139,7 +139,7 @@
       
       
       <li class="opcion-con-desplegable">
-      <a href="/logout">
+      <a href="/logout" onclick="return confirmLogout();">
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
         	<div class="flex items-center">
             <i class="fas fa-sign-out-alt fa-flip-horizontal fa-lg mr-3" style="color: #ffffff;"></i>
@@ -154,3 +154,9 @@
     </ul>
   </nav>
 </aside>
+
+<script>
+  function confirmLogout() {
+    return confirm("로그아웃을 진행하시겠습니까?");
+  }
+</script>

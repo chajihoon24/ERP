@@ -2,6 +2,7 @@ package com.erp.service;
 
 import java.util.List;
 
+import com.erp.domain.ErpUser;
 import com.erp.domain.Notice;
 
 public interface MainService {
@@ -13,4 +14,6 @@ public interface MainService {
 	Notice getNoticeById(int id);
 	
 	void noticeDelete(int id);
+	
+	ErpUser getUserByUsername(String username);
 }

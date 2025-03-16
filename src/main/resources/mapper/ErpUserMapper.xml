@@ -9,6 +9,12 @@
         WHERE user_id = #{userId}
     </select>
     
+    <select id="getUserByUsername" parameterType="String" resultType="com.erp.domain.ErpUser">
+        SELECT user_id AS userId, username, password, name, email, role, status, created_at AS createdAt, updated_at AS updatedAt
+        FROM users
+        WHERE username = #{username}
+    </select>
+    
     <select id="getDeletedUser" resultType="com.erp.domain.ErpUser">
         SELECT user_id AS userId, username, password, name, email, role, status, created_at AS createdAt, updated_at AS updatedAt
         FROM users

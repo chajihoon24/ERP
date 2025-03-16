@@ -28,4 +28,6 @@ public interface ErpUserRepository {
     void updateUser(Map<String, Object> map);
     
     void changeDelete(int userId);
+    
+    ErpUser getUserByUsername(String username);
 }

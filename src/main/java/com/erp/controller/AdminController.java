@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -99,6 +100,8 @@ public class AdminController {
 	
 	@RequestMapping(value="/insertUser", method=RequestMethod.POST)
 	public String insertUser(@ModelAttribute ErpUser user){
+		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		 user.setPassword(passwordEncoder.encode(user.getPassword()));
 		System.out.println("updateUser 진입 "+ user.toString());
 		LocalDateTime date = LocalDateTime.now();
 		user.setCreatedAt(date);
