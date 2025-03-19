@@ -5,6 +5,7 @@
     <!-- 사용자 정보 조회 -->
     <select id="getAll" resultType="com.erp.domain.Notice">
 		select * from notice
+		LIMIT #{pageSize} OFFSET #{offset}
     </select>
     
     <select id="getNoticeById" resultType="com.erp.domain.Notice">
@@ -20,6 +21,20 @@
 	<delete id="noticeDelete" parameterType="int">
 	    DELETE FROM notice WHERE id = #{id}
 	</delete>
+	
+	<update id="updateNotice" parameterType="com.erp.domain.Notice">
+	    UPDATE notice
+	    SET title = #{title},
+	        content = #{content},
+	        updated_at = NOW(),
+	        created_at = NOW()
+	    WHERE id = #{id}
+	</update>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from notice
+	</select>
+	
 	
 	
 </mapper>

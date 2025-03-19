@@ -14,6 +14,12 @@
         <mapper resource="mapper/ErpUserMapper.xml"/>
          <!-- 게시판 SQL 맵퍼  -->
         <mapper resource="mapper/noticeMapper.xml"/> 
+        <!-- 직원 SQL 맵퍼  -->
+        <mapper resource="mapper/employeeMapper.xml"/>
+        
+        <mapper resource="mapper/departmentMapper.xml"/>
+        
+        <mapper resource="mapper/notificationMapper.xml"/>
     </mappers>
     
     

@@ -240,7 +240,12 @@
 	        <artifactId>spring-security-crypto</artifactId>
 	        <version>4.2.19.RELEASE</version>
 	    </dependency>
-
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>4.2.19.RELEASE</version>  <!-- Spring Security 4 버전 -->
+		</dependency>
 	
 
 	</dependencies>

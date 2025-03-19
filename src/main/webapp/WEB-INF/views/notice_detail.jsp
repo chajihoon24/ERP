@@ -38,12 +38,15 @@
             </div>
         </div>
         <div class="ml-auto flex">
-        	<div id="update_btn" class="underline text-gray-500 hover:text-black p-3">
-				<a href="/main/notice/delete/${data.id}">수정</a>
-			</div>
-			<div id="delete_btn" class="underline text-gray-500 hover:text-red-600 p-3">
-				<a href="/main/notice/delete/${data.id}">삭제</a>
-			</div>
+        
+			<c:if test="${loginUsername == data.author}">
+	        	<div id="update_btn" class="underline text-gray-500 hover:text-black p-3">
+					<i class="mr-3 fas fa-info-circle" style="color: #9e9e9e;"></i><a href="/main/notice/update_form/${data.id}">수정</a>
+				</div>
+				<div id="delete_btn" class="underline text-gray-500 hover:text-red-600 p-3">
+					<a href="/main/notice/delete/${data.id}">삭제</a>
+				</div>
+			</c:if>
 			<div class="underline text-gray-500 hover:text-black p-3"><a href="/main">목록 으로</a></div>
 		</div>
     </div>

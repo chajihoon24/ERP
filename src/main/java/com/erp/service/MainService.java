@@ -7,7 +7,9 @@ import com.erp.domain.Notice;
 
 public interface MainService {
 		
-	List<Notice> getAllNotice();
+	List<Notice> getAllNotice(int page);
+	
+	int getTotalPages();
 	
 	void insertNotice(Notice notice);
 	
@@ -16,4 +18,8 @@ public interface MainService {
 	void noticeDelete(int id);
 	
 	ErpUser getUserByUsername(String username);
+	
+	void updateNotice(Notice notice);
+	
+	void deleteNotification(int id);
 }

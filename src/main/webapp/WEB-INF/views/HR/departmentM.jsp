@@ -18,8 +18,40 @@
 
     <div class="flex">
         <div class="w-1/2 h-screen">
-            <div class="m-2 bg-white h-full flex items-center justify-center">
-                리스트 컴포넌트 1
+            <div class="m-2 bg-white h-full flex">
+    <div class="block w-full overflow-x-auto">
+      <table class="items-center bg-transparent w-full border-collapse ">
+        <thead>
+          <tr>
+            <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                         일련번호
+                        </th>
+                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                         부서명
+                        </th>
+          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          생성일자
+                        </th>
+          </tr>
+        </thead>
+
+        <tbody>
+			<c:forEach var="n" items="${data}" varStatus="status">
+			    <tr class="${status.index % 2 == 0 ? 'bg-gray-100' : ''}">
+			        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+			            ${n.id}
+			        </th>
+			        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+			            ${n.name}
+			        </td>
+			        <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 underline">
+			            ${n.createdAt}
+			        </td>
+			    </tr>
+			</c:forEach>
+        </tbody>
+      </table>
+    </div>
             </div>
         </div>
         <div class="w-1/2 h-screen">

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 <aside class="bg-gray-800 text-white w-64 min-h-screen p-4 max-w-none">
   <nav>
     <ul class="space-y-2">
@@ -125,7 +127,7 @@
         </a>
       </li>
       
-     
+<sec:authorize access="isAnonymous()">     
       <li class="opcion-con-desplegable">
       <a href="/main/login">
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
@@ -136,8 +138,8 @@
         </div>
         </a>
       </li>
-      
-      
+</sec:authorize>      
+	<sec:authorize access="isAuthenticated()">      	
       <li class="opcion-con-desplegable">
       <a href="/logout" onclick="return confirmLogout();">
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
@@ -148,7 +150,7 @@
         </div>
         </a>
       </li>        
-        
+     </sec:authorize>
         
         
     </ul>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MyBatis Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.repository.NotificationRepository">
+
+
+	<select id="getAll" parameterType="String" resultType="com.erp.domain.Notification"> 
+		select * from notifications
+		where username = #{username}
+		order by created_at desc;
+	</select>
+
+	<delete id="deleteNotification" parameterType="int">
+	    DELETE FROM notifications WHERE id = #{id}
+	</delete>
+	
+	<select id="getTotalCountByUsername" parameterType="String" resultType="int">
+	select count(*) from notifications
+	where username = #{username} and is_read = false
+	</select>
+	
+</mapper>
