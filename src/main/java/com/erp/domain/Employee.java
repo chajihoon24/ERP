@@ -20,5 +20,9 @@ public class Employee {
 	private String status;
 	private String workLocation;
 	private String position;
+	private String address;
+	private String rrn;
+	private String tel;
+
 
 }

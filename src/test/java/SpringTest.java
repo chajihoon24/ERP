@@ -56,20 +56,11 @@ public class SpringTest {
 		}
 	}
 	
-	public void getList() {
-		System.out.println("관리자계정 리스트 가져오기 테스트");
-		for(Employee n: employeeRepository.getAll()) {
-			System.out.println(n.getName());
-		}
-	}
+
 	@Test
 	public void name() {
 		
-		for(Notification n:notificationRepository.getAll("jihoon9998")) {
-			
-			System.out.println(n.toString());
-		};
-		
+		System.out.println(employeeRepository.getEmployeeById(1));
 		
 	}
 	

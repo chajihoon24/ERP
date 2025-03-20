@@ -52,7 +52,7 @@
 			<c:forEach var="n" items="${data}" varStatus="status">
 			    <tr class="${status.index % 2 == 0 ? 'bg-gray-100' : ''}">
 			        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
-			         ${((currentPage-1)*8) + (status.index+1)}
+			         ${((currentPage-1)*9) + (status.index+1)}
 			        </th>
 			        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
 			            ${n.type eq 'NOTICE' ? '공지' : '일반'}
@@ -103,9 +103,11 @@
     알림
     <div class="relative">
         <i class="far fa-bell fa-sm ml-3 text-gray-500"></i>
+        <c:if test="${notificationTotal>0}">
         <div class="absolute -top-1 -right-2 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
             ${notificationTotal}
         </div>
+        </c:if>
     </div>
     <div class="text-gray-400 hover:text-red-500 ml-auto text-base font-semibold underline pt-2"><a href="#">모두 지우기</a></div>
 </h3>
@@ -123,8 +125,8 @@
                     </div>
                     
                     <!-- 알림 메시지 -->
-                    <div class="text-gray-800">
-                        ${n.message}
+                    <div class="text-gray-800 hover:underline">
+                        <a href="/main/changeRead/${n.id}">${n.message}</a>
                     </div>
                     
                     <!-- 알림 시간 -->

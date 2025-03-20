@@ -22,4 +22,7 @@ public interface MainService {
 	void updateNotice(Notice notice);
 	
 	void deleteNotification(int id);
+	
+	void changeRead(int id);
+	
 }

@@ -146,5 +146,13 @@ public class MainController {
 		return "redirect: /main";
 	}
 	
+	@RequestMapping(value = "/changeRead/{id}")
+	public String changeRead(@PathVariable("id")int id) {
+		
+		notificationRepository.changeRead(id);
+		
+		return "redirect:/main";
+		
+	}
 	
 }

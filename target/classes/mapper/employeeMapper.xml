@@ -5,6 +5,7 @@
 	<!-- 모든 직원 조회 -->
 	<select id="getAll" resultType="com.erp.domain.Employee">
 		SELECT * FROM employee
+		LIMIT #{pageSize} OFFSET #{offset}
 	</select>
 	
 	<!-- 직원 추가 -->
@@ -13,4 +14,12 @@
 		VALUES (#{name}, #{email}, #{age}, #{hireDate}, #{workLocation}, #{status})
 	</insert>
 
+	<select id="getTotalCount" resultType="int">
+		select count(*) from employee
+	</select>
+	
+	<select id="getEmployeeById" parameterType="int" resultType="com.erp.domain.Employee">
+		select * from employee where id = #{id} 
+	</select>
+	
 </mapper>

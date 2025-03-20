@@ -7,11 +7,15 @@ import com.erp.domain.Employee;
 
 public interface HRService {
 	
-	List<Employee> getAllEmployee();
+	List<Employee> getAllEmployee(int page);
 	
 	void insertEmployee(Employee employee);
 	
 	List<Department> getAllDepartment();
 	
 	void insertDepartment(Department department);
+	
+	int getTotalPages();
+	
+	Employee getEmployeeById(int id);
 }

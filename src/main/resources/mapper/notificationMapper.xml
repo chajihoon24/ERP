@@ -18,4 +18,12 @@
 	where username = #{username} and is_read = false
 	</select>
 	
+	<update id="changeRead" parameterType="int">
+		    UPDATE notifications
+	    SET is_read = 1
+	    WHERE id = #{id}
+		
+	</update>
+	
+	
 </mapper>

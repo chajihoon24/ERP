@@ -15,7 +15,7 @@ import com.erp.service.MainService;
 @Service
 public class MainServiceImpl implements MainService {
 	
-	 private static final int PAGE_SIZE = 8; // 한 페이지당 10개씩
+	 private static final int PAGE_SIZE = 9; // 한 페이지당 10개씩
 	@Autowired
 	NotificationRepository notificationRepository;
 	@Autowired
@@ -33,7 +33,6 @@ public class MainServiceImpl implements MainService {
 	
     public int getTotalPages() {
         int totalRecords = noticeRepository.getTotalCount();
-        System.out.println("total : "+totalRecords);
         return (int) Math.ceil((double) totalRecords / PAGE_SIZE);
     }
 	
@@ -64,7 +63,10 @@ public class MainServiceImpl implements MainService {
 		
 		notificationRepository.deleteNotification(id);
 	}
-	
-	
+	@Override
+	public void changeRead(int id) {
+		notificationRepository.changeRead(id);
+		
+	}
 	
 }

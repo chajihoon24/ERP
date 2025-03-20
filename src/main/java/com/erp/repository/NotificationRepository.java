@@ -14,5 +14,8 @@ public interface NotificationRepository {
 	void deleteNotification(int id);
 	
 	int getTotalCountByUsername(String username);
+	
+	void changeRead(int id);
+
 
 }
