@@ -36,3 +36,12 @@
         <div class="mb-10"></div>
     </div>
 </form>
+
+<script>
+
+
+localStorage.setItem("username", "jihoon9998");
+
+
+
+</script>

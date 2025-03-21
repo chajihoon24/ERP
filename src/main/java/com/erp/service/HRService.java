@@ -18,4 +18,8 @@ public interface HRService {
 	int getTotalPages();
 	
 	Employee getEmployeeById(int id);
+	
+	void deleteById(int id);
+	
+	void updateEmployee(Employee employee);
 }

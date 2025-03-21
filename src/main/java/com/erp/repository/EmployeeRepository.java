@@ -17,4 +17,8 @@ public interface EmployeeRepository {
 	int getTotalCount();
 	
 	Employee getEmployeeById(int id);
+	
+	void deleteById(int id);
+	
+	void updateEmployee(Employee employee);
 }

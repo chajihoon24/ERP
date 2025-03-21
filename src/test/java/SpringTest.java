@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -59,8 +62,13 @@ public class SpringTest {
 
 	@Test
 	public void name() {
+		Employee employee = new Employee();
 		
-		System.out.println(employeeRepository.getEmployeeById(1));
+		employee.setId(1);
+		employee.setName("수정수정");
+		employee.setNotes("안녕하세요 안녀앙아ㅏ아아아");
+		
+		employeeRepository.updateEmployee(employee);
 		
 	}
 	

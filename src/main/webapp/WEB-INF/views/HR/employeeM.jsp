@@ -74,58 +74,58 @@
   <div class="overflow-x-auto" style="min-height: 452px">
     <div id="employee_list" class="py-2 inline-block min-w-full">
       <div class="overflow-hidden">
-        <table class="min-w-full">
-          <thead class="bg-white border-b">
-            <tr>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                No.
-              </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                	이름	
-              </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                부서
-              </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-               직급
-              </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                재직여부
-              </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                근무지
-              </th>
-                                          <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                입사일
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          <c:forEach var="Employee" items="${EmployeeList}" varStatus="status">
-            <tr class="${status.index % 2 != 0 ? 'bg-white' : ''} border-b" onClick="location.href='/HR/employee_m/detail/${Employee.id}?page=${currentPage}'" style="cursor:pointer;">
-              <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">${status.index}</td>
-              <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-               ${Employee.name}
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                	경영부
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                ${Employee.position}
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                ${Employee.status == 'ACTIVE'?'재직중':'휴직'}
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-               ${Employee.workLocation}
-              </td>
-               <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-               ${Employee.hireDate}
-              </td>
-            </tr>
-            </c:forEach>
-          </tbody>
-        </table>
+		<table class="min-w-full">
+		  <thead class="bg-white border-b">
+		    <tr>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        No.
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        이름
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        부서
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        직급
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        재직여부
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        근무지
+		      </th>
+		      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+		        입사일
+		      </th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <c:forEach var="Employee" items="${EmployeeList}" varStatus="status">
+		      <tr class="${status.index % 2 != 0 ? 'bg-white' : ''} border-b" onClick="location.href='/HR/employee_m/detail/${Employee.id}?page=${currentPage}'" style="cursor:pointer;">
+		        <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900 hover:underline">${status.index}</td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          ${Employee.name}
+		        </td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          경영부
+		        </td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          ${Employee.position}
+		        </td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          ${Employee.status == 'ACTIVE' ? '재직중' : '휴직'}
+		        </td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          ${Employee.workLocation}
+		        </td>
+		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
+		          ${Employee.hireDate}
+		        </td>
+		      </tr>
+		    </c:forEach>
+		  </tbody>
+		</table>
       </div>
     </div>
     
@@ -162,37 +162,61 @@
 <div class="flex mt-4 flex-grow w-full" style="height: 50vh ">
 
 <!-- 상세 보기 -->
-	<div class="bg-white p-4 w-full h-full mr-4 rounded shadow-md">
-	    <div class="mx-1 p-2">
-	        <div class="text-xl font-semibold text-gray-700">직원 상세 정보</div>
-	        <hr class="my-2">
+<div class="bg-white p-4 w-full h-full mr-4 rounded shadow-md relative">
+    <div class="mx-1 p-2">
+        <div class="text-xl font-semibold text-gray-700">직원 상세 정보</div>
+        <hr class="my-2">
+        <c:if test="${employee == null}">
+        <div> 선택된 직원이 없습니다.</div>
+        </c:if>
+		<c:if test="${employee != null}">
+		        <!-- 좌우를 나누는 칸막이 -->
+		        <div class="grid grid-cols-2 gap-10 text-gray-700 mt-2 border border-gray-300 rounded-md p-4">
+		            <div class="space-y-5 border-r border-gray-300 pr-4">
+		                <div><span class="font-medium">이름:</span> ${employee.name}</div>
+		                <div><span class="font-medium">직급:</span> ${employee.position}</div>
+		                <div><span class="font-medium">주민번호:</span> ${employee.rrn}</div>
+		                <div><span class="font-medium">연락처:</span> ${employee.tel}</div>
+		                <div><span class="font-medium">이메일:</span> ${employee.email}</div>
+		            </div>
+		            <div class="space-y-5 pl-4">
+		                <div><span class="font-medium">주소:</span> ${employee.address}</div>
+		                <div><span class="font-medium">입사일:</span> ${employee.hireDate}</div>
+		                <div><span class="font-medium">퇴사일:</span> ${employee.resignationDate != null ? employee.resignationDate : '재직중'}</div>
+		                <div><span class="font-medium">근무지:</span> ${employee.workLocation}</div>
+		            </div>
+		        </div>
+		        <div class="mt-4 text-gray-700">
+				    <span class="font-medium p-4 text-lg">비고:</span>
+				    <p class="mt-1 p-4">
+				        ${employee.notes == null ? "비고 없음" : employee.notes}
+				    </p>
+				</div>
+		
+		        <!-- 버튼 영역: 오른쪽 아래 끝에 고정 -->
+		        <div class="absolute bottom-4 right-4 flex space-x-3">
+		            <button class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded" onclick="update_btn(${employee.id})"> 
+		                수정
+		            </button>
+		            <button class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded" onclick="delete_btn(${employee.id})">
+		                삭제
+		            </button>
+		        </div>
+        </c:if>
+        
+        
+    </div>
+</div>
+
 	
-	        <div class="grid grid-cols-2 gap-10 text-gray-700 mt-2">
-	            <!-- 왼쪽 정보 -->
-	            <div class="space-y-5">
-	                <div><span class="font-medium">이름:</span> ${employee.name}</div>
-	                <div><span class="font-medium">직급:</span> ${employee.position}</div>
-	                <div><span class="font-medium">주민번호:</span> ${employee.rrn}</div>
-	                <div><span class="font-medium">연락처:</span> ${employee.tel}</div>
-	                <div><span class="font-medium">이메일:</span> ${employee.email}</div>
-	            </div>
-	
-	            <!-- 오른쪽 정보 -->
-	            <div class="space-y-5">
-	                <div><span class="font-medium">주소:</span> ${employee.address}</div>
-	                <div><span class="font-medium">입사일:</span> ${employee.hireDate}</div>
-	                <div><span class="font-medium">퇴사일:</span> ${employee.resignationDate != null ? Employee.resignationDate : '재직중'}</div>
-	                <div><span class="font-medium">근무지:</span> ${employee.workLocation}</div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+	<!--==================================================================================  -->
 	
 	<div class="bg-white p-2 w-full h-full rounded">
 		<div class="mx-1 p-2">
 	  		<div class="text-xl text-gray-700">직원 등록</div>
 	  	    <hr>
 	</div>
+	<!--===================================================================================  -->
 
 </div>
  <!-- =============================================================================== -->
@@ -203,8 +227,82 @@
 
 </div>
 
+<script>
+function update_btn() {
+    // 입력을 받는 알림창
+    var userInput = prompt("비밀번호를 입력하세요:", "");
 
-  
+    if (userInput != null) {
+        // 비밀번호 비교를 서버에서 처리하도록 Ajax 요청
+        $.ajax({
+            url: '/HR/employee_m/checkPassword', // 비밀번호 확인을 위한 서버 엔드포인트
+            method: 'POST',
+            data: {
+                password: userInput
+            },
+            success: function(response) {
+                // 서버에서 반환된 결과에 따라 처리
+                if (response.isPasswordCorrect) {
+                    alert("비밀번호가 일치합니다.");
+                    location.href= '/HR/employee_m/perform/${employee.id}';
+                    
+                } else {
+                    alert("비밀번호가 일치하지 않습니다.");
+                }
+            },
+            error: function() {
+                alert("서버 요청에 실패했습니다.");
+            }
+        });
+    } else {
+        alert("입력이 취소되었습니다.");
+    }
+}
+
+function delete_btn(employeeId) {
+    // 입력을 받는 알림창
+    var userInput = prompt("비밀번호를 입력하세요:", "");
+
+    if (userInput != null) {
+        // 비밀번호 비교를 서버에서 처리하도록 Ajax 요청
+        $.ajax({
+            url: '/HR/employee_m/checkPassword', // 비밀번호 확인을 위한 서버 엔드포인트
+            method: 'POST',
+            data: {
+                password: userInput
+            },
+            success: function(response) {
+                // 서버에서 반환된 결과에 따라 처리
+                if (response.isPasswordCorrect) {
+                    alert("비밀번호가 일치합니다.");
+                    
+                    // employeeId를 사용하여 삭제 요청
+                    $.ajax({
+                        url: '/HR/employee_m/delete/' + employeeId,  // 경로 변경
+                        method: 'DELETE',
+                        success: function() {
+                            alert("삭제되었습니다.");
+                            location.href= "/HR/employee_m";  // 페이지 새로 고침
+                        },
+                        error: function() {
+                            alert("삭제 중 오류가 발생했습니다.");
+                        }
+                    });
+
+                } else {
+                    alert("비밀번호가 일치하지 않습니다.");
+                }
+            },
+            error: function() {
+                alert("서버 요청에 실패했습니다.");
+            }
+        });
+    } else {
+        alert("입력이 취소되었습니다.");
+    }
+}
+
+</script>
   
   
   

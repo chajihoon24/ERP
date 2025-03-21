@@ -121,5 +121,14 @@ public class HRServiceImpl implements HRService {
 	        return employee;
 	    }
 	    
-
+	@Override
+	public void deleteById(int id) {
+		employeeRepository.deleteById(id);
+		
+	}
+	@Override
+	public void updateEmployee(Employee employee) {
+		employeeRepository.updateEmployee(employee);
+		
+	}
 }
