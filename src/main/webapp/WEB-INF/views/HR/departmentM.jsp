@@ -18,7 +18,7 @@
 
     <div class="flex">
         <div class="w-1/2 h-screen">
-            <div class="m-2 bg-white h-full flex">
+            <div class="m-2 bg-white h-full flex shadow-lg">
     <div class="block w-full overflow-x-auto">
       <table class="items-center bg-transparent w-full border-collapse ">
         <thead>
@@ -31,6 +31,9 @@
                         </th>
           <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           생성일자
+                        </th>
+                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          
                         </th>
           </tr>
         </thead>
@@ -47,6 +50,9 @@
 			        <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 underline">
 			            ${n.createdAt}
 			        </td>
+			        <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 hover:underline hover:text-red-500">
+			            <a id="deleteDepartment_btn" href="/HR/department_m/delete/${n.id}" class="p-1">X</a>
+			        </td>
 			    </tr>
 			</c:forEach>
         </tbody>
@@ -54,10 +60,74 @@
     </div>
             </div>
         </div>
-        <div class="w-1/2 h-screen">
-            <div class="m-2 bg-white h-full flex items-center justify-center">
-                리스트 컴포넌트 2
-            </div>
+<div class="w-1/2 h-screen flex bg-gray-100">
+    <div class="m-4 bg-white h-60 w-full max-w-md p-6 rounded-2xl shadow-lg">
+        <div class="mb-4">
+            <label for="name" class="block text-lg font-medium text-gray-700 mb-2">부서명</label>
+            <input 
+                type="text" 
+                id="name" 
+                placeholder="부서명을 입력하세요" 
+                class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
         </div>
+
+        <!-- 버튼 추가 -->
+        <button id="insert_btn"
+            type="submit"
+            class="w-full bg-gray-500 text-white font-medium py-3 rounded-lg shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200"
+        >
+            등록
+        </button>
     </div>
 </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    // 삭제 버튼 클릭 시 확인 메시지 표시
+    $("#deleteDepartment_btn").click(function(e) {
+        e.preventDefault(); // 링크 기본 동작 방지
+        
+        if (confirm("삭제 하시겠습니까?")) {
+            window.location.href = $(this).attr('href'); // 확인 시 삭제 수행
+        }
+    });
+    
+    
+    $("#insert_btn").click(function(e){
+    	e.preventDefault();
+    	
+    	let department = $("#name").val();
+    	
+    	
+    	
+    	$.ajax({
+    	    url: '/HR/department_m/insert',
+    	    type: 'POST',
+    	    contentType: 'application/json',
+    	    data: JSON.stringify({ name: department }),  // JSON.stringify로 JSON 문자열 변환
+    	    success: function (response) {
+    	        alert("부서가 추가되었습니다.");
+    	        location.href = "/HR/department_m";  // 페이지 새로고침
+    	    },
+    	    error: function (xhr, status, error) {
+    	        alert("부서 추가에 실패했습니다: " + xhr.responseText);
+    	    }
+    	});
+    	
+    })
+    
+    
+    
+    
+    
+});
+
+
+
+
+</script>
+

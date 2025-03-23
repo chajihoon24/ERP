@@ -20,7 +20,6 @@ public class Employee {
 	private int id;
 	private String name;
 	private String email;
-	private int age;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private String hireDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -32,5 +31,7 @@ public class Employee {
 	private String rrn;
 	private String tel;
 	private String notes;
+	private String departmentId;
+	private String departmentName;
 
 }

@@ -10,4 +10,6 @@ public interface DepartmentRepository {
 	
 	void insertDepartment(Department department);
 	
+	void deleteDepartment(int id);
+	
 }

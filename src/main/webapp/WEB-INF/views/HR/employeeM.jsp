@@ -65,6 +65,11 @@
 <button class="bg-gray-500 text-white py-2 px-4 font-semibold rounded-lg shadow-md hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75">
   검색
 </button>
+	<a href="/HR/employee_m/perform1">
+	<button id="insertEmployee_btn" class="ml-auto bg-gray-500 text-white py-2 px-4 font-semibold rounded-lg shadow-md hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75">
+		직원 등록
+	</button>
+	</a>
 </div>
 
 
@@ -108,7 +113,7 @@
 		          ${Employee.name}
 		        </td>
 		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
-		          경영부
+		          ${Employee.departmentName}
 		        </td>
 		        <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap hover:underline">
 		          ${Employee.position}
@@ -174,6 +179,7 @@
 		        <div class="grid grid-cols-2 gap-10 text-gray-700 mt-2 border border-gray-300 rounded-md p-4">
 		            <div class="space-y-5 border-r border-gray-300 pr-4">
 		                <div><span class="font-medium">이름:</span> ${employee.name}</div>
+		                <div><span class="font-medium">부서:</span> ${employee.departmentName}</div>
 		                <div><span class="font-medium">직급:</span> ${employee.position}</div>
 		                <div><span class="font-medium">주민번호:</span> ${employee.rrn}</div>
 		                <div><span class="font-medium">연락처:</span> ${employee.tel}</div>
@@ -243,7 +249,6 @@ function update_btn() {
             success: function(response) {
                 // 서버에서 반환된 결과에 따라 처리
                 if (response.isPasswordCorrect) {
-                    alert("비밀번호가 일치합니다.");
                     location.href= '/HR/employee_m/perform/${employee.id}';
                     
                 } else {
@@ -301,7 +306,6 @@ function delete_btn(employeeId) {
         alert("입력이 취소되었습니다.");
     }
 }
-
 </script>
   
   

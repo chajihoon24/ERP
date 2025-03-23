@@ -12,7 +12,7 @@
     <!-- 이름 -->
     <div class="flex items-center">
         <label for="name" class="w-32 font-medium text-gray-700">이름</label>
-        <input id="name" value="${employee.name}"
+        <input id="name" 
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-64 transition-all duration-300 focus:outline-none"
             placeholder="이름을 입력하세요" required>
     </div>
@@ -20,7 +20,7 @@
     <!-- 이메일 -->
     <div class="flex items-center">
         <label for="email" class="w-32 font-medium text-gray-700">이메일</label>
-        <input id="email" type="email" value="${employee.email}"
+        <input id="email" type="email" 
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-64 transition-all duration-300 focus:outline-none"
             placeholder="이메일을 입력하세요" required>
     </div>
@@ -28,11 +28,24 @@
     <!-- 주민등록번호 -->
     <div class="flex items-center">
         <label for="rrn" class="w-32 font-medium text-gray-700">주민등록번호</label>
-        <input id="rrn" value="${employee.rrn}"
+        <input id="rrn" 
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-64 transition-all duration-300 focus:outline-none"
             placeholder="주민등록번호를 입력하세요">
     </div>
 
+    <!-- 상태 -->
+	<div class="flex items-center">
+	    <label for="status" class="w-32 font-medium text-gray-700">상태</label>
+	    <select id="status"
+	        class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-40 transition-all duration-300 focus:outline-none"
+	        onchange="toggleResignationDate()">
+	        <option value="ACTIVE">재직중</option>
+	        <option value="INACTIVE">퇴사</option>
+	        <option value="ON_LEAVE">휴직</option>
+	    </select>
+	</div>
+
+    <!-- 상태 -->
 	<div class="flex items-center">
 	    <label for="department" class="w-32 font-medium text-gray-700">부서</label>
 	    <select id="department"
@@ -43,42 +56,24 @@
 	        </c:forEach>
 	    </select>
 	</div>
-    <!-- 상태 -->
-	<div class="flex items-center">
-	    <label for="status" class="w-32 font-medium text-gray-700">상태</label>
-	    <select id="status"
-	        class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-40 transition-all duration-300 focus:outline-none"
-	        onchange="toggleResignationDate()">
-	        <option value="ACTIVE" ${employee.status == 'ACTIVE' ? 'selected' : ''}>재직중</option>
-	        <option value="INACTIVE" ${employee.status == 'INACTIVE' ? 'selected' : ''}>퇴사</option>
-	        <option value="ON_LEAVE" ${employee.status == 'ON_LEAVE' ? 'selected' : ''}>휴직</option>
-	    </select>
-	</div>
 
 <!-- 퇴사일 입력란 (숨겨짐) -->
 
     <!-- 입사일 -->
     <div class="flex items-center">
         <label for="hireDate" class="w-32 font-medium text-gray-700">입사일</label>
-        <input id="hireDate" type="text" value="${employee.hireDate}"
+        <input id="hireDate" type="text"
             class="border-b border-gray-300 focus:border-3 focus:border-black p-2 w-40 transition-all duration-300 focus:outline-none"
             required><span class="text-gray-300 ml-8">ex) 1997-02-08</span>
     </div>
     
-	<div class="flex items-center" id="resignationDateContainer" style="display: none;">
-	    <label for="resignationDate" class="w-32 font-medium text-gray-700">퇴사일</label>
-	    <input id="resignationDate" type="text" value="${employee.resignationDate}"
-	        class="border-b border-gray-300 focus:border-3 focus:border-black p-2 w-40 transition-all duration-300 focus:outline-none"
-	        required><span class="text-gray-300 ml-8">ex) 1997-02-08</span>
-	</div>
-
     <!-- 근무 위치 -->
     <div class="flex items-center">
         <label for="workLocation" class="w-32 font-medium text-gray-700">근무지</label>
              <select id="workLocation"
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-40 transition-all duration-300 focus:outline-none">
-            <option value="강남(본사)" ${employee.status == '강남(본사)' ? 'selected' : ''}>강남(본사)</option>
-            <option value="판교" ${employee.status == '판교' ? 'selected' : ''}>판교</option>
+            <option value="강남(본사)" >강남(본사)</option>
+            <option value="판교" >판교</option>
 
         </select>
     </div>
@@ -88,21 +83,21 @@
         <label for="position" class="w-32 font-medium text-gray-700">직책</label>
         <select id="position"
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-40 transition-all duration-300 focus:outline-none">
-            <option value="INTERN" ${employee.position == 'INTERN' ? 'selected' : ''}>인턴</option>
-            <option value="JUNIOR" ${employee.position == 'JUNIOR' ? 'selected' : ''}>사원</option>
-            <option value="ASSOCIATE" ${employee.position == 'ASSOCIATE' ? 'selected' : ''}>대리</option>
-            <option value="SENIOR" ${employee.position == 'SENIOR' ? 'selected' : ''}>과장</option>
-            <option value="MANAGER" ${employee.position == 'MANAGER' ? 'selected' : ''}>차장</option>
-            <option value="DIRECTOR" ${employee.position == 'DIRECTOR' ? 'selected' : ''}>부장</option>
-            <option value="EXECUTIVE" ${employee.position == 'EXECUTIVE' ? 'selected' : ''}>임원</option>
-            <option value="CEO" ${employee.position == 'CEO' ? 'selected' : ''}>사장</option>
+            <option value="INTERN" >인턴</option>
+            <option value="JUNIOR" >사원</option>
+            <option value="ASSOCIATE" >대리</option>
+            <option value="SENIOR" >과장</option>
+            <option value="MANAGER" >차장</option>
+            <option value="DIRECTOR" >부장</option>
+            <option value="EXECUTIVE" >임원</option>
+            <option value="CEO" >사장</option>
         </select>
     </div>
 
     <!-- 주소 -->
     <div class="flex items-center">
         <label for="address" class="w-32 font-medium text-gray-700">주소</label>
-        <input id="address" value="${employee.address}"
+        <input id="address"
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-1/2 transition-all duration-300 focus:outline-none"
             placeholder="주소를 입력하세요">
     </div>
@@ -110,7 +105,7 @@
     <!-- 전화번호 -->
     <div class="flex items-center">
         <label for="tel" class="w-32 font-medium text-gray-700">전화번호</label>
-        <input id="tel" value="${employee.tel}"
+        <input id="tel"
             class="border-b border-gray-300 focus:border-b-2 focus:border-blue-500 p-2 w-64 transition-all duration-300 focus:outline-none"
             placeholder="전화번호를 입력하세요">
     </div>
@@ -120,7 +115,7 @@
         <label for="notes" class="w-32 font-medium text-gray-700">비고</label>
         <textarea id="notes"
             class="border border-gray-300 focus:border-b-2 focus:border-blue-500 w-1/2 h-80 transition-all duration-300 focus:outline-none"
-            placeholder="비고를 입력하세요">${employee.notes}
+            placeholder="비고를 입력하세요">
     </textarea>
     </div>
 
@@ -143,7 +138,7 @@
 
 <script>
 window.onload = function() {
-    toggleResignationDate(); // 페이지 로드 시 상태에 따라 퇴사일 입력란을 표시하거나 숨김
+
 }
 
 $(document).ready(function() {
@@ -151,14 +146,13 @@ $(document).ready(function() {
         event.preventDefault(); // 폼 제출 기본 동작 방지
 
         let employee = {
-        	    id: ${employee.id},
+
         	    name: $('#name').val(),
-        	    departmentId:$('#department').val(),
         	    email: $('#email').val(),
         	    rrn: $('#rrn').val(),
         	    status: $('#status').val(),
         	    hireDate: $('#hireDate').val() ? $('#hireDate').val() : null,
-        	    resignationDate: $('#status').val() === 'INACTIVE' ? ($('#resignationDate').val() ? $('#resignationDate').val() : null) : null,
+				departmentId: $('#department').val(),
         	    workLocation: $('#workLocation').val(),
         	    position: $('#position').val(),
         	    address: $('#address').val(),
@@ -180,12 +174,12 @@ $(document).ready(function() {
 
         // 데이터 전송
         $.ajax({
-            url: '/HR/employee_m/update', // 엔드포인트 URL 설정
-            type: 'PATCH',
+            url: '/HR/employee_m/insert', // 엔드포인트 URL 설정
+            type: 'POST',
             contentType: 'application/json', // 서버로 JSON 형식의 데이터를 보냄
             data: JSON.stringify(employee), // JSON 형식으로 데이터를 전송
             success: function(response) {
-                alert("수정되었습니다.");
+                alert("등록 되었습니다.");
                 location.href = "/HR/employee_m"; // 성공 시 페이지 리다이렉션
             },
             error: function(xhr) {
@@ -195,16 +189,5 @@ $(document).ready(function() {
     });
 });
 
-function toggleResignationDate() {
-    const status = document.getElementById('status').value; // 상태 선택값 가져오기
-    const resignationDateContainer = document.getElementById('resignationDateContainer');
-
-    // 상태가 'INACTIVE'일 때만 퇴사일 입력란을 표시
-    if (status === 'INACTIVE') {
-        resignationDateContainer.style.display = 'flex'; // 퇴사일 입력란 표시
-    } else {
-        resignationDateContainer.style.display = 'none'; // 퇴사일 입력란 숨김
-    }
-}
 
 </script>

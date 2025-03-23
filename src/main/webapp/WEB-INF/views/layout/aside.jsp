@@ -21,15 +21,9 @@
             </a>
           </li>
           <li>
-            <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
+            <a href="/HR/payroll/main" class="block p-2 hover:bg-gray-700 flex items-center">
               <i class="fas fa-chevron-right mr-2 text-xs"></i>
              	 급여 관리
-            </a>
-          </li>
-          <li>
-            <a href="#" class="block p-2 hover:bg-gray-700 flex items-center">
-              <i class="fas fa-chevron-right mr-2 text-xs"></i>
-             	 성과 관리
             </a>
           </li>
           <li>

@@ -22,4 +22,6 @@ public interface HRService {
 	void deleteById(int id);
 	
 	void updateEmployee(Employee employee);
+	
+	void deleteDepartment(int id);
 }

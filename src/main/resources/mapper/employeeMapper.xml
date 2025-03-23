@@ -4,22 +4,30 @@
 
 	<!-- 모든 직원 조회 -->
 	<select id="getAll" resultType="com.erp.domain.Employee">
-		SELECT * FROM employee
+	    SELECT e.id, e.name, e.email, e.hire_date AS hireDate, e.work_location AS workLocation, 
+	           e.status, e.notes, e.tel, e.rrn, e.position, e.address, e.department_id AS departmentId, 
+	           d.name AS departmentName
+	    FROM employee e
+	    LEFT JOIN department d ON e.department_id = d.id
 		LIMIT #{pageSize} OFFSET #{offset}
 	</select>
 	
 	<!-- 직원 추가 -->
 	<insert id="insertEmployee" parameterType="com.erp.domain.Employee">
-		INSERT INTO employee (name, email, age, hire_date, work_location, status)
-		VALUES (#{name}, #{email}, #{age}, #{hireDate}, #{workLocation}, #{status})
+	    INSERT INTO employee (name, email, hire_date, work_location, status, notes, tel, rrn, position, address,department_id)
+	    VALUES (#{name}, #{email}, #{hireDate}, #{workLocation}, #{status}, #{notes}, #{tel}, #{rrn}, #{position}, #{address},#{departmentId})
 	</insert>
-
 	<select id="getTotalCount" resultType="int">
 		select count(*) from employee
 	</select>
 	
 	<select id="getEmployeeById" parameterType="int" resultType="com.erp.domain.Employee">
-		select * from employee where id = #{id} 
+	    SELECT e.id, e.name, e.email, e.hire_date AS hireDate, e.work_location AS workLocation, 
+	           e.status, e.notes, e.tel, e.rrn, e.position, e.address,
+	           d.name AS departmentName
+	    FROM employee e
+	    LEFT JOIN department d ON e.department_id = d.id
+	    where e.id = #{id}
 	</select>
 	
 	<delete id="deleteById" parameterType="int">
@@ -39,7 +47,8 @@
             <if test="notes != null">notes = #{notes},</if>
             <if test="status != null">status = #{status},</if>
             <if test="hireDate != null">hire_date = #{hireDate},</if>
-            <if test="resignationDate != null">resignation_date = #{resignationDate}</if>
+            <if test="resignationDate != null">resignation_date = #{resignationDate},</if>
+            <if test="departmentId != null">department_id = #{departmentId}</if>
         </set>
         WHERE id = #{id}
     </update>

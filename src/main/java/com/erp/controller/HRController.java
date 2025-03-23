@@ -1,6 +1,7 @@
 package com.erp.controller;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.domain.Department;
 import com.erp.domain.Employee;
+import com.erp.repository.DepartmentRepository;
 import com.erp.security.CustomUserDetails;
 import com.erp.serviceImpl.HRServiceImpl;
 
@@ -39,7 +41,7 @@ public class HRController {
 	
 	@RequestMapping("/employee_m")
 	public String employeeManagementPage(Model model,@RequestParam(defaultValue = "1") int page) {
-		
+
 		model.addAttribute("currentPage", page);
 		List<Employee> list =  hrServiceImpl.getAllEmployee(page);
 		int totalPages = hrServiceImpl.getTotalPages();
@@ -121,19 +123,38 @@ public class HRController {
 	}
 	
 	
-	
 	@RequestMapping(value ="/employee_m/perform/{id}")
 	public String employeePerform(Model model,@PathVariable int id) {
 		System.out.println(" 등록 페이지 접근");
-		
+		List<Department> Dlist = hrServiceImpl.getAllDepartment();
 		Employee employee = hrServiceImpl.getEmployeeById(id);
 		
+		model.addAttribute("Dlist",Dlist);
 		model.addAttribute("employee",employee);
 		model.addAttribute("contentPage","/WEB-INF/views/HR/employeeM_perform.jsp");
 			
 		return "layout/layout";
 	}	
 	
+	@RequestMapping(value ="/employee_m/perform1")
+	public String employeePerform1(Model model) {
+		System.out.println(" 등록 페이지 접근");
+		List<Department> Dlist = hrServiceImpl.getAllDepartment();
+		model.addAttribute("Dlist",Dlist);
+		model.addAttribute("contentPage","/WEB-INF/views/HR/employeeM_perform1.jsp");
+			
+		return "layout/layout";
+	}
+	@RequestMapping(value ="/employee_m/insert", method=RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<String> employeeInsert(Model model,@RequestBody Employee employee) {
+		
+		
+		
+		hrServiceImpl.insertEmployee(employee);
+		
+			
+		return ResponseEntity.ok("직원 등록 성공");
+	}	
 	
 	
 	
@@ -148,5 +169,25 @@ public class HRController {
 			
 		return "layout/layout";
 	}
+	
+	@RequestMapping("/department_m/delete/{id}")
+	public String deleteDepartment(Model model,@PathVariable int id) {
+		
+		hrServiceImpl.deleteDepartment(id);
+
+			
+		return "redirect:/HR/department_m";
+	}
+	@RequestMapping(value="/department_m/insert", method=RequestMethod.POST)
+	public ResponseEntity<String> insertDepartment(Model model,@RequestBody Department department) {
+		
+		LocalDate date = LocalDate.now();
+		department.setCreatedAt(date);
+		
+		hrServiceImpl.insertDepartment(department);;
+
+			
+		return ResponseEntity.ok("부서 추가 성공");
+	}	
 
 }

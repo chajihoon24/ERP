@@ -14,5 +14,8 @@
 	        VALUES (#{name}, #{createdAt});
 	    </insert>
 
+		<delete id="deleteDepartment" parameterType="int">
+			delete from department where id = #{id}
+		</delete>
 
 </mapper>
