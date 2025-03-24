@@ -24,4 +24,6 @@ public interface HRService {
 	void updateEmployee(Employee employee);
 	
 	void deleteDepartment(int id);
+	
+	List<Employee> getAllNone();
 }

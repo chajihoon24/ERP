@@ -33,5 +33,6 @@ public class Employee {
 	private String notes;
 	private String departmentId;
 	private String departmentName;
+	private int salary;
 
 }

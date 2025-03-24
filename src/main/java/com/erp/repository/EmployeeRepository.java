@@ -21,4 +21,8 @@ public interface EmployeeRepository {
 	void deleteById(int id);
 	
 	void updateEmployee(Employee employee);
+	
+	List<Employee> getAllNone();
+	
+	
 }

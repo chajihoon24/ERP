@@ -172,7 +172,7 @@
         <div class="text-xl font-semibold text-gray-700">직원 상세 정보</div>
         <hr class="my-2">
         <c:if test="${employee == null}">
-        <div> 선택된 직원이 없습니다.</div>
+        <div class="p-2 text-xl text-semibold text-gray-500"> 선택된 직원이 없습니다.</div>
         </c:if>
 		<c:if test="${employee != null}">
 		        <!-- 좌우를 나누는 칸막이 -->

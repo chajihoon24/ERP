@@ -135,4 +135,10 @@ public class HRServiceImpl implements HRService {
 	public void deleteDepartment(int id) {
 		departmentRepository.deleteDepartment(id);	
 	}
+	
+	@Override
+	public List<Employee> getAllNone() {
+		return employeeRepository.getAllNone();
+	}
+	
 }
