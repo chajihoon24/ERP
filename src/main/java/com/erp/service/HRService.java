@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.erp.domain.Department;
 import com.erp.domain.Employee;
+import com.erp.domain.PayrollRecord;
 
 public interface HRService {
 	
@@ -26,4 +27,12 @@ public interface HRService {
 	void deleteDepartment(int id);
 	
 	List<Employee> getAllNone();
+	
+	void insertRecord(PayrollRecord payrollRecord);
+	
+	List<PayrollRecord> getAllPayRecord(int page);
+	
+	int getTotalCount();
+	
+	void deleteRecord(int id);
 }

@@ -15,13 +15,13 @@ public class NIServiceImpl implements LIService {
     private final double NPS = 0.13;
 
     // 건강보험 (National Health Insurance)
-    private final double NHI = 0.8;
+    private final double NHI = 0.08;
 
     // 장기요양보험 (Long-Term Care Insurance)
     private final double LTCI = NHI * 0.13;
 
     // 고용보험 (Employment Insurance)
-    private final double EI = 0.2;
+    private final double EI = 0.02;
 
     // 소득세 (Income Tax)
     private final double incomeTax = 0.1;

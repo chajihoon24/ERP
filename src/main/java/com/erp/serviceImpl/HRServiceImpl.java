@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.erp.domain.Department;
 import com.erp.domain.Employee;
+import com.erp.domain.PayrollRecord;
 import com.erp.repository.DepartmentRepository;
 import com.erp.repository.EmployeeRepository;
+import com.erp.repository.PayrollRecordRepository;
 import com.erp.service.HRService;
 
 @Service
@@ -21,6 +23,8 @@ public class HRServiceImpl implements HRService {
 	
 	@Autowired
 	DepartmentRepository departmentRepository;
+	@Autowired
+	PayrollRecordRepository payrollRecordRepository;
  	
 	
 	@Override
@@ -139,6 +143,26 @@ public class HRServiceImpl implements HRService {
 	@Override
 	public List<Employee> getAllNone() {
 		return employeeRepository.getAllNone();
+	}
+	@Override
+	public void insertRecord(PayrollRecord payrollRecord) {
+		payrollRecordRepository.insertRecord(payrollRecord);
+	}
+	@Override
+	public List<PayrollRecord> getAllPayRecord(int page) {
+		int offset = (page - 1) * 20;
+		int page_Size = 20;
+		System.out.println("offset:" + offset );
+		return payrollRecordRepository.getAll(page_Size,offset);
+	}
+	@Override
+	public int getTotalCount() {
+		int totalRecord = payrollRecordRepository.getTotalCount();
+		return (int) Math.ceil((double) totalRecord/20);
+	}
+	@Override
+	public void deleteRecord(int id) {
+		payrollRecordRepository.deleteRecord(id);
 	}
 	
 }

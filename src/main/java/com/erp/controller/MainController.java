@@ -59,7 +59,6 @@ public class MainController {
 		model.addAttribute("notificationTotal",notificationTotal);
 		model.addAttribute("contentPage","/WEB-INF/views/home.jsp");
 		model.addAttribute("totalPages", totalPages);
-		System.out.println("컨트롤러 토탈 수: "+totalPages);
 		model.addAttribute("currentPage", page);
 			
 		return "layout/layout";

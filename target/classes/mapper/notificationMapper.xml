@@ -25,5 +25,10 @@
 		
 	</update>
 	
+	    <insert id="insertNotification" parameterType="com.erp.domain.Notification">
+	        INSERT INTO notifications (username, message,created_at) 
+	        VALUES (#{username}, #{message},#{createdAt});
+	    </insert>
+	
 	
 </mapper>

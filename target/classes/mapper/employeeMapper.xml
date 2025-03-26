@@ -24,7 +24,7 @@
 	<select id="getEmployeeById" parameterType="int" resultType="com.erp.domain.Employee">
 	    SELECT e.id, e.name, e.email, e.hire_date AS hireDate, e.work_location AS workLocation, 
 	           e.status, e.notes, e.tel, e.rrn, e.position, e.address,
-	           d.name AS departmentName, e.salary
+	           d.name AS departmentName, e.salary,e.bank,e.acount
 	    FROM employee e
 	    LEFT JOIN department d ON e.department_id = d.id
 	    where e.id = #{id}

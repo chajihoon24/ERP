@@ -1,5 +1,6 @@
 package com.erp.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.erp.domain.ErpUser;
+import com.erp.domain.Notification;
+import com.erp.repository.ErpUserRepository;
+import com.erp.repository.NotificationRepository;
 import com.erp.serviceImpl.AdminServiceImpl;
 
 
@@ -27,6 +31,12 @@ public class AdminController {
 	
 	@Autowired
 	private AdminServiceImpl adminServiceImpl;
+	
+	@Autowired
+	private NotificationRepository notificationRepository;
+	
+	@Autowired
+	private ErpUserRepository erpUserRepository;
 	
 	@RequestMapping()
 	public String userM(Model model) {
@@ -93,6 +103,22 @@ public class AdminController {
 	public ResponseEntity<String> updateUser(@RequestBody Map<String, Object> updates){
 		System.out.println("updateUser 진입 "+ updates.toString());
 		adminServiceImpl.updateUser(updates);
+		
+		
+		Integer tmp = Integer.parseInt((String)updates.get("id"));
+		
+		ErpUser user = erpUserRepository.getUserById(tmp);
+		
+		LocalDateTime date = LocalDateTime.now();
+		
+		Notification notification = new Notification();
+		notification.setCreatedAt(date);
+		notification.setUsername(user.getUsername());
+		notification.setMessage("권한이 변경되었습니다.");
+		notificationRepository.insertNotification(notification);
+		
+		
+		
 		
 		return ResponseEntity.ok("User updated successfully");
 		

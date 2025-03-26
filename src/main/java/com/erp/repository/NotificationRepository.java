@@ -16,6 +16,8 @@ public interface NotificationRepository {
 	int getTotalCountByUsername(String username);
 	
 	void changeRead(int id);
+	
+	void insertNotification(Notification notification);
 
 
 }

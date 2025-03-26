@@ -20,6 +20,8 @@
         <mapper resource="mapper/departmentMapper.xml"/>
         
         <mapper resource="mapper/notificationMapper.xml"/>
+        
+        <mapper resource="mapper/payrollRecordMapper.xml"/>
     </mappers>
     
     

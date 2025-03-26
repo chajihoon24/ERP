@@ -34,5 +34,7 @@ public class Employee {
 	private String departmentId;
 	private String departmentName;
 	private int salary;
+	private String bank;
+	private String acount;
 
 }

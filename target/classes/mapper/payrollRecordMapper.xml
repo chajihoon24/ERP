@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MyBatis Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.repository.PayrollRecordRepository">
+
+
+<select id="getAll" resultType="com.erp.domain.PayrollRecord">
+    SELECT e.id, d.name, e.report_year, e.report_month, d.acount, d.bank, e.transfer_status, real_total, d.rrn
+    FROM payroll_record e
+    JOIN employee d ON e.employee_id = d.id
+    ORDER BY e.report_year DESC, e.report_month DESC
+    LIMIT #{pageSize} OFFSET #{offset}
+</select>
+	
+	<insert id="insertRecord" parameterType="com.erp.domain.PayrollRecord">
+	    INSERT INTO payroll_record (
+	        employee_id, basic_salary, bonus, position_allowance, night_work_hours,
+	        special_allowance, report_year, report_month, transfer_status, real_total
+	    ) VALUES (
+	        #{employeeId}, #{basicSalary}, #{bonus}, #{positionAllowance}, #{nightWorkHours},
+	        #{specialAllowance}, #{reportYear}, #{reportMonth}, #{transferStatus}, #{realTotal}
+	    )
+	</insert>
+	
+	<select id="getTotalCount" resultType="int">
+	select count(*) from payroll_record
+	</select>
+
+	<delete id="deleteRecord" parameterType="int" >
+		DELETE FROM payroll_record WHERE id = #{id}
+	</delete>
+
+	
+	
+	
+</mapper>

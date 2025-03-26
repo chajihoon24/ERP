@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,11 +16,13 @@ import com.erp.domain.Employee;
 import com.erp.domain.ErpUser;
 import com.erp.domain.Notice;
 import com.erp.domain.Notification;
+import com.erp.domain.PayrollRecord;
 import com.erp.repository.DepartmentRepository;
 import com.erp.repository.EmployeeRepository;
 import com.erp.repository.ErpUserRepository;
 import com.erp.repository.NoticeRepository;
 import com.erp.repository.NotificationRepository;
+import com.erp.repository.PayrollRecordRepository;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= { "file:src/main/webapp/WEB-INF/spring/config/applicationContext.xml" })
 public class SpringTest {
@@ -34,6 +37,8 @@ public class SpringTest {
 	DepartmentRepository departmentRepository;
 	@Autowired
 	NotificationRepository  notificationRepository;
+	@Autowired
+	PayrollRecordRepository payroll;
 	
 	
 	public void insertSampleUser() {
@@ -62,14 +67,12 @@ public class SpringTest {
 
 	@Test
 	public void name() {
-		Employee employee = new Employee();
+		List<PayrollRecord> list = payroll.getAll();
 		
-		employee.setId(1);
-		employee.setName("수정수정");
-		employee.setNotes("안녕하세요 안녀앙아ㅏ아아아");
-		
-		employeeRepository.updateEmployee(employee);
-		
+		for(PayrollRecord n : list) {
+			
+			System.out.println(n.toString());
+		}
 	}
 	
 	
